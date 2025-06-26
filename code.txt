@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyto's Domain | Discord Community</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        discord: {
+                            primary: '#5865F2',
+                            dark: '#36393F',
+                            card: '#2F3136',
+                            text: '#DCDDDE',
+                            muted: '#72767D'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['"Whitney"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2F3136;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #36393F;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4E5058;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-discord-dark text-discord-text min-h-screen overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="bg-discord-card py-4 px-6 fixed w-full z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fab fa-discord text-3xl text-white"></i>
+                <span class="text-xl font-bold">Cyto's Domain</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-discord-primary transition">Home</a>
+                <a href="#features" class="hover:text-discord-primary transition">Features</a>
+                <a href="#rules" class="hover:text-discord-primary transition">Rules</a>
+                <a href="#staff" class="hover:text-discord-primary transition">Staff</a>
+            </div>
+            <button id="join-btn" class="bg-discord-primary hover:bg-[#4752C4] px-4 py-2 rounded text-white font-medium transition">
+                Join Server
+            </button>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-discord-card z-40 hidden flex-col items-center justify-center space-y-8">
+        <a href="#home" class="text-2xl hover:text-discord-primary transition">Home</a>
+        <a href="#features" class="text-2xl hover:text-discord-primary transition">Features</a>
+        <a href="#rules" class="text-2xl hover:text-discord-primary transition">Rules</a>
+        <a href="#staff" class="text-2xl hover:text-discord-primary transition">Staff</a>
+        <button id="mobile-join-btn" class="bg-discord-primary hover:bg-[#4752C4] px-6 py-3 rounded text-white font-medium text-xl transition">
+            Join Server
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to <span class="text-discord-primary">Cyto's Domain</span></h1>
+                <p class="text-lg text-discord-muted mb-8">The ultimate aotr community for people </p>
+                <div class="flex flex-wrap gap-4">
+                    <button id="hero-join-btn" class="bg-discord-primary hover:bg-[#4752C4] px-6 py-3 rounded text-white font-medium transition">
+                        Join Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6 bg-discord-card">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Server Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-discord-dark p-6 rounded-xl transition hover:scale-105 hover:shadow-lg">
+                    <div class="text-discord-primary text-4xl mb-4">
+                        <i class="fas fa-bolt"></i> <!-- Icon for Raid/Mission -->
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Raid/Mission</h3>
+                    <p class="text-discord-muted">Join us for exciting raids and missions with fellow members.</p>
+                </div>
+                <div class="bg-discord-dark p-6 rounded-xl transition hover:scale-105 hover:shadow-lg">
+                    <div class="text-discord-primary text-4xl mb-4">
+                        <i class="fas fa-comments"></i> <!-- Icon for Chat with People -->
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Chat with People</h3>
+                    <p class="text-discord-muted">Engage in lively discussions and make new friends.</p>
+                </div>
+                <div class="bg-discord-dark p-6 rounded-xl transition hover:scale-105 hover:shadow-lg">
+                    <div class="text-discord-primary text-4xl mb-4">
+                        <i class="fas fa-chart-line"></i> <!-- Icon for Stocks -->
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Stocks</h3>
+                    <p class="text-discord-muted">Stay updated with the latest stock market trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 px-6 bg-discord-primary text-white">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 text-center gap-8">
+            <div>
+                <div class="text-4xl font-bold mb-2" id="members-count">60+</div>
+                <div class="text-xl">Members</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold mb-2" id="online-count">20+</div>
+                <div class="text-xl">Online</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold mb-2" id="games-count">50+</div>
+                <div class="text-xl">Game Channels</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Server Rules</h2>
+        <div class="space-y-4">
+            <div class="border-l-4 border-discord-primary pl-4">
+                <h3 class="text-xl font-bold mb-2">1. Be Respectful</h3>
+                <p class="text-discord-muted">Treat all members with respect. No harassment, hate speech, or personal attacks.</p>
+            </div>
+            <div class="border-l-4 border-discord-primary pl-4">
+                <h3 class="text-xl font-bold mb-2">2. No NSFW Content</h3>
+                <p class="text-discord-muted">Keep all content appropriate for all ages. No NSFW material is allowed.</p>
+            </div>
+            <div class="border-l-4 border-discord-primary pl-4">
+                <h3 class="text-xl font-bold mb-2">3. Use Proper Channels</h3>
+                <p class="text-discord-muted">Keep discussions in their appropriate channels to maintain organization.</p>
+            </div>
+            <div class="border-l-4 border-discord-primary pl-4">
+                <h3 class="text-xl font-bold mb-2">4. No Spamming</h3>
+                <p class="text-discord-muted">Avoid excessive messages, emoji, or pinging other members without reason.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section id="staff" class="py-20 px-6 bg-discord-card">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Meet The Team</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-32 h-32 rounded-full bg-discord-primary bg-opacity-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-crown text-4xl text-amber-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Cytorrien</h3>
+                    <p class="text-discord-muted">Founder & Admin</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 rounded-full bg-discord-primary bg-opacity-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-4xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">父ᴱᴹᴾˣᴸᵁᶠᶠʸツ</h3>
+                    <p class="text-discord-muted">Website Creator</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 rounded-full bg-discord-primary bg-opacity-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-user text-4xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">New Team Member</h3>
+                    <p class="text-discord-muted">Role Description</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 bg-discord-dark border-t border-discord-card">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <i class="fab fa-discord text-2xl text-white"></i>
+                <span class="text-lg font-bold">Cyto's Domain</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://youtube.com/@cytorrien?si=IX-Oi4f50qpVIKvf" target="_blank" class="text-discord-muted hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
+                <a href="#" class="text-discord-muted hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-discord-muted hover:text-white"><i class="fab fa-twitch text-xl"></i></a>
+                <a href="#" class="text-discord-muted hover:text-white"><i class="fab fa-tiktok text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Server Modal -->
+    <div id="join-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-discord-card rounded-xl p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Join Our Server</h3>
+                <button id="close-modal" class="text-2xl">&times;</button>
+            </div>
+            <p class="mb-6 text-discord-muted">You're about to join Cyto's Domain Discord server. Click the button below to proceed to Discord.</p>
+            <div class="flex flex-col space-y-4">
+                <button id="final-join-btn" class="bg-discord-primary hover:bg-[#4752C4] px-6 py-3 rounded text-white font-medium transition flex items-center justify-center">
+                    <i class="fab fa-discord mr-2"></i> Join Now
+                </button>
+                <button id="copy-invite" class="border border-discord-muted text-discord-muted hover:bg-discord-dark px-6 py-3 rounded font-medium transition">
+                    Copy Invite Link
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Discord server invite link
+        const DISCORD_INVITE_LINK = "https://discord.gg/ZYxGASxe";
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('flex');
+        });
+
+        // Join server buttons
+        const joinButtons = [
+            document.getElementById('join-btn'),
+            document.getElementById('hero-join-btn'),
+            document.getElementById('mobile-join-btn')
+        ];
+        
+        joinButtons.forEach(button => {
+            button?.addEventListener('click', () => {
+                document.getElementById('join-modal').classList.remove('hidden');
+            });
+        });
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('join-modal').classList.add('hidden');
+        });
+
+        // Final join button
+        document.getElementById('final-join-btn').addEventListener('click', () => {
+            window.open(DISCORD_INVITE_LINK, '_blank');
+            document.getElementById('join-modal').classList.add('hidden');
+        });
+
+        // Copy invite link
+        document.getElementById('copy-invite').addEventListener('click', () => {
+            navigator.clipboard.writeText(DISCORD_INVITE_LINK);
+            const copyBtn = document.getElementById('copy-invite');
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = 'Copied!';
+            copyBtn.classList.remove('text-discord-muted');
+            copyBtn.classList.add('text-green-400');
+            setTimeout(() => {
+                copyBtn.textContent = originalText;
+                copyBtn.classList.remove('text-green-400');
+                copyBtn.classList.add('text-discord-muted');
+            }, 2000);
+        });
+
+        // Take a tour button
+        document.getElementById('tour-btn')?.addEventListener('click', () => {
+            alert("This would showcase server features in an interactive tour. Customize this as needed!");
+        });
+
+        // Animated counters
+        function animateCounters() {
+            const membersCount = document.getElementById('members-count');
+            const onlineCount = document.getElementById('online-count');
+            const gamesCount = document.getElementById('games-count');
+            
+            const targetValues = [60, 20, 50]; // Updated values
+            const elements = [membersCount, onlineCount, gamesCount];
+            const speed = 200; // Lower is faster
+            
+            elements.forEach((el, index) => {
+                const target = targetValues[index];
+                const increment = target / speed;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        el.textContent = target.toLocaleString() + "+";
+                    } else {
+                        el.textContent = Math.floor(current).toLocaleString() + "+";
+                    }
+                }, 1);
+            });
+        }
+
+        // Initialize everything when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            animateCounters();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Prevent mobile menu from staying open on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
